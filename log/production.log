@@ -1,0 +1,132 @@
+I, [2022-03-15T17:30:24.770962 #164090]  INFO -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a] Started POST "/api/v1/jobs" for 127.0.0.1 at 2022-03-15 17:30:24 +0500
+I, [2022-03-15T17:30:24.772686 #164090]  INFO -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a] Processing by Api::V1::JobsController#create as */*
+I, [2022-03-15T17:30:24.772875 #164090]  INFO -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a]   Parameters: {"job"=>{"name"=>"arsalan", "email"=>"fahadishfaq18@gmail.com", "file_url"=>"https://firebasestorage.googleapis.com/v0/b/sojoblessbh-d7b54.appspot.com/o/resumes%2F682E6EBE-DD89-4275-AFCC-6B08DB197819?alt=media&token=cfd73fab-219d-482c-99b7-c80eb9733965"}}
+I, [2022-03-15T17:30:24.785222 #164090]  INFO -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a] Completed 500 Internal Server Error in 12ms
+F, [2022-03-15T17:30:24.786333 #164090] FATAL -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a]   
+F, [2022-03-15T17:30:24.786482 #164090] FATAL -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a] PG::ConnectionBad (fe_sendauth: no password supplied
+):
+F, [2022-03-15T17:30:24.786565 #164090] FATAL -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a]   
+F, [2022-03-15T17:30:24.786646 #164090] FATAL -- : [7b7f9f25-fea3-42a0-86c4-cfb7be57845a] app/controllers/api/v1/jobs_controller.rb:24:in `create'
+D, [2022-03-15T17:31:52.103408 #164432] DEBUG -- :   [1m[35m (460.8ms)[0m  [1m[35mCREATE DATABASE "job_mail_production" ENCODING = 'unicode'[0m
+D, [2022-03-15T17:31:58.134930 #164449] DEBUG -- :   [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+D, [2022-03-15T17:31:58.161165 #164449] DEBUG -- :   [1m[35m (21.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2022-03-15T17:31:58.163012 #164449] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8154493200633086055)[0m
+D, [2022-03-15T17:31:58.186906 #164449] DEBUG -- :   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2022-03-15T17:31:58.187587 #164449]  INFO -- : Migrating to CreateJobs (20220314120819)
+D, [2022-03-15T17:31:58.190703 #164449] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2022-03-15T17:31:58.201344 #164449] DEBUG -- :   [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "jobs" ("id" bigserial primary key, "name" character varying, "email" character varying, "file_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+D, [2022-03-15T17:31:58.206505 #164449] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220314120819"]]
+D, [2022-03-15T17:31:58.217545 #164449] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+I, [2022-03-15T17:31:58.217680 #164449]  INFO -- : Migrating to CreateActiveStorageTables (20220314120906)
+D, [2022-03-15T17:31:58.218606 #164449] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+D, [2022-03-15T17:31:58.240832 #164449] DEBUG -- :   [1m[35m (21.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+D, [2022-03-15T17:31:58.249147 #164449] DEBUG -- :   [1m[35m (3.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+D, [2022-03-15T17:31:58.272317 #164449] DEBUG -- :   [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+D, [2022-03-15T17:31:58.284951 #164449] DEBUG -- :   [1m[35m (7.8ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+D, [2022-03-15T17:31:58.294797 #164449] DEBUG -- :   [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+D, [2022-03-15T17:31:58.297711 #164449] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220314120906"]]
+D, [2022-03-15T17:31:58.299643 #164449] DEBUG -- :   [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+D, [2022-03-15T17:31:58.306736 #164449] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2022-03-15T17:31:58.315289 #164449] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+D, [2022-03-15T17:31:58.316446 #164449] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2022-03-15 12:31:58.315522"], ["updated_at", "2022-03-15 12:31:58.315522"]]
+D, [2022-03-15T17:31:58.317220 #164449] DEBUG -- :   [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+D, [2022-03-15T17:31:58.317818 #164449] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8154493200633086055)[0m
+I, [2022-03-15T17:32:07.771583 #164090]  INFO -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5] Started POST "/api/v1/jobs" for 127.0.0.1 at 2022-03-15 17:32:07 +0500
+I, [2022-03-15T17:32:07.772454 #164090]  INFO -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5] Processing by Api::V1::JobsController#create as */*
+I, [2022-03-15T17:32:07.772570 #164090]  INFO -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5]   Parameters: {"job"=>{"name"=>"arsalan", "email"=>"fahadishfaq18@gmail.com", "file_url"=>"https://firebasestorage.googleapis.com/v0/b/sojoblessbh-d7b54.appspot.com/o/resumes%2F682E6EBE-DD89-4275-AFCC-6B08DB197819?alt=media&token=cfd73fab-219d-482c-99b7-c80eb9733965"}}
+I, [2022-03-15T17:32:07.785243 #164090]  INFO -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5] Completed 500 Internal Server Error in 13ms
+F, [2022-03-15T17:32:07.786548 #164090] FATAL -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5]   
+F, [2022-03-15T17:32:07.786740 #164090] FATAL -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5] PG::ConnectionBad (fe_sendauth: no password supplied
+):
+F, [2022-03-15T17:32:07.786841 #164090] FATAL -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5]   
+F, [2022-03-15T17:32:07.786936 #164090] FATAL -- : [584d301c-49f2-42b5-9fbc-25e07e935ec5] app/controllers/api/v1/jobs_controller.rb:24:in `create'
+I, [2022-03-15T17:32:32.519243 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24] Started POST "/api/v1/jobs" for 127.0.0.1 at 2022-03-15 17:32:32 +0500
+I, [2022-03-15T17:32:32.521315 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24] Processing by Api::V1::JobsController#create as */*
+I, [2022-03-15T17:32:32.521520 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24]   Parameters: {"job"=>{"name"=>"arsalan", "email"=>"fahadishfaq18@gmail.com", "file_url"=>"https://firebasestorage.googleapis.com/v0/b/sojoblessbh-d7b54.appspot.com/o/resumes%2F682E6EBE-DD89-4275-AFCC-6B08DB197819?alt=media&token=cfd73fab-219d-482c-99b7-c80eb9733965"}}
+I, [2022-03-15T17:32:32.576094 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24]   Rendering application_mailer/send_mail.html.erb within layouts/mailer
+I, [2022-03-15T17:32:32.579666 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24]   Rendered application_mailer/send_mail.html.erb within layouts/mailer (3.3ms)
+D, [2022-03-15T17:32:32.581355 #164734] DEBUG -- : [f582a49c-c8e3-4621-abf7-b366d0688a24] ApplicationMailer#send_mail: processed outbound mail in 11.0ms
+I, [2022-03-15T17:32:39.008250 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24] Sent mail to fahadishfaq18@gmail.com (6426.7ms)
+D, [2022-03-15T17:32:39.008401 #164734] DEBUG -- : [f582a49c-c8e3-4621-abf7-b366d0688a24] Date: Tue, 15 Mar 2022 17:32:32 +0500
+From: from@example.com
+To: fahadishfaq18@gmail.com
+Message-ID: <623087608e374_2837e2b09c5c81a14940b3@algorepublic-fahadishfaq.mail>
+Subject: arsalan
+Mime-Version: 1.0
+Content-Type: multipart/related;
+ boundary="--==_mimepart_623087608db7c_2837e2b09c5c81a149399d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_623087608db7c_2837e2b09c5c81a149399d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Dear Manager,</p>
+<p>Great news! A candidate has applied for your job vacancy. Attached herewith is an application with CV.</p>
+<p>We hope you find a great candidate for the position.</p>
+<p>Best regards</p>
+<a target="_blank" download="true" href="https://firebasestorage.googleapis.com/v0/b/sojoblessbh-d7b54.appspot.com/o/resumes%2F682E6EBE-DD89-4275-AFCC-6B08DB197819?alt=media&amp;token=cfd73fab-219d-482c-99b7-c80eb9733965"><img src="cid:623087608cfaf_2837e2b09c5c81a14938d@algorepublic-fahadishfaq.mail" /></a>
+  </body>
+</html>
+
+----==_mimepart_623087608db7c_2837e2b09c5c81a149399d
+Content-Type: image/png;
+ filename=file.png
+Content-Transfer-Encoding: base64
+Content-Disposition: inline;
+ filename=file.png
+Content-ID: <623087608cfaf_2837e2b09c5c81a14938d@algorepublic-fahadishfaq.mail>
+
+iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEX////L
+BgbygYHKAADcfHzPMTHUU1PXZWXfiorMFxfHAAD0hobUKyvknZ3gT0/kn5/W
+Xl7jk5PxeXn71tbgj4/UQED54+P719fWTU366en++Pjwy8vzjIz2r6/329v8
+7+/wxMTccHDVV1fuvLzpqKjiYWHbRUXXNjblXV3iVVXRIiLudHTihobrsrLS
+OTnfe3vNEhKAWPopAAAE6ElEQVR4nO3daXuaQBSGYfC4UoghcSUtuCRdbGL8
+/7+uKhBBiAxmPDND3+cbF2q9AziDVLUshBBCCCGEEEIIIYQQQggh0wu91bYj
+oZfvh6aqOYXWrkNyumsdenhULcoXzRyy5UR33zQkPm5k+U7C1oNGO2pI8oAn
+oUbEwJYIzAj12VHvZQKzQl2ITzL30bxQkx1V7ibMC7XYipHcTXgm1IG4cKQC
+z4Ua7Ki+3E1YEKontm8tVL6j3l6omsggVLyjcgjVbkUWoVIij1AlkUmo8Fjk
+EqrbimxCZUQ+oaodlVGoaCtyCtUQWYVKiLxCFURmoQIit5CfyC5kJ/ILuYkK
+hMxEFUJeohIhK1GNkJMoXfhTSMhIVCXkI0oXbgWFbETpwoEgkI0oW2iTsJCJ
+KF/4ohlRvvCX6IHIRJQutOlBXMhBvIGw1kb8YaDQpt/iREOF9CJMNFO4N/5p
+ic5sDBXatPn9t/VNoJapwv2eSoONW93m1VRhjBSobbBQ7M8AIYQQQgghhBBC
+CCGEl4TnM+RPV1Xcr+QmeghpM/xo1F7tMs+TqJ+s8EbLcUE/Gp7Vv0RUKPTy
+N4veZukTpfvcmtDbZghnK4+t9BT6hVsuBvQJYu2eNrDJQmseQ0oQwTL9TIPZ
+Qmty3B3LENa7Y6owmO8L0hv7OeE8Ck6P0/1sF7asmdbC3uHDs24vjJeOHyFK
+EW/7FSsvSh5nTrld+G3WTRtrOlokwsPf/zAgTOLFTkbox4PdOnmgfk7YFhsO
+NREeFlfx4ntOeFzjJMR57iAVnSrpI9zEi15BaJOdHI3dpgpt5zleHpotHMeL
+ryXCdN1TXihyFGokTLfTrERoO/HyJPtCOxJ7odFAeHd8kk46ylGpMB4xguxK
+a5I072n+WurvNgN3mY4I6+yOeBKGRf6poebCXIF7hdAzSdjODeonYTIdMF/Y
+jmfXRWE8IEam76WTdAJdGC0oXg6zu3Dw9Bg37RohDKK37sf3uxSEy3h5kRsP
+nTTdR4vn5XLZ67qUeaKFOc0iXu6bOafZFkft83lpMqWxxmYKS07uzs4t0hOr
+0NBzi0vCw8mxM54nD7Q8Oz9sgHDhdrrtRfo4ITVPaAWZt2ksN/8+TTOE2dJR
+r6nC6GNYb6jweVd4z9sA4UhUOPU3JdctDBDao31+2Vqitj+Ke+1t97MdKq68
+eL1JD6F94S0IoeuHYkBcA4YQQgghhBBCCCGE8L8Xln7C5Yq0FVJn1ZWStu95
+U1B9X6Hedb1uQbL+AW2vPUkTanv9EELhmi/U9ziU9Vp6eUqhcjwc96RU8aX2
+mNPcUsgThBBC+H8Lb/TiqY+QVqP+VQ1qEU2cta0bL6z3sy4QSgjC2jVf+GSM
+cF5939Lq/byS0v+LMbguY0b8q+c0tYCYl0IIIYTNFpJTmYy/jcIRv1d9Vxk/
+nahQ+Fx913rzM+2EQwgh1F7Y/OPQq76r4ULyvapco0cLoZOnrwMxa4MQQggh
+hBBCCOUk40T9K8Kyb4mRW71LRdJLv1TjhkVSppfXRhRVP8Wvdvmbqm4tFHjD
+68tNFW5EIpbfJVO4EVk2oWUFO1VE2sn6b7oVhYr2U6KQB7gnyng/oj5wM+UC
+Hr65Q8pFiFo+Z8YwUGRad5xrL2tfleOuq5+U5MLh/bbD03blsR2BCCGEEEII
+IYQQQgghhBBCN+sfypGbO0fYqnMAAAAASUVORK5CYII=
+
+----==_mimepart_623087608db7c_2837e2b09c5c81a149399d--
+
+I, [2022-03-15T17:32:39.008718 #164734]  INFO -- : [f582a49c-c8e3-4621-abf7-b366d0688a24] Completed 200 OK in 6487ms (Views: 0.3ms | ActiveRecord: 15.1ms)

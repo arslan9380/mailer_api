@@ -30,7 +30,7 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :letter_opener
   # config.action_mailer.perform_deliveries = true
 
-  config.asset_host = 'https://bed3-162-12-210-90.ngrok.io'
+  config.asset_host = 'http://localhost:3000'
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
@@ -43,9 +43,7 @@ Rails.application.configure do
     # :user_name => "mian.arslan9380@gmail.com",
     # :password => "msqkhmfhgnzfccun"
     :user_name => "sojobless.bh@gmail.com",
-    :password => "arrkeggsofqiatwq"
-
-
+    :password => "rbgwkwzkeeggbtzq"
   }
 
 

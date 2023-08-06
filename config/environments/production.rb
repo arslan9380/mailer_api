@@ -55,7 +55,7 @@ Rails.application.configure do
     # :user_name => "mian.arslan9380@gmail.com",
     # :password => "msqkhmfhgnzfccun"
     :user_name => "sojobless.bh@gmail.com",
-    :password => "arrkeggsofqiatwq"
+    :password => "rbgwkwzkeeggbtzq"
   }
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil

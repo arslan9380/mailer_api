@@ -22,8 +22,11 @@ class Api::V1::JobsController < ApplicationController
   # POST /jobs or /jobs.json
   def create
     @job = Job.new(job_params)
+
+    ApplicationMailer.send_mail(@job, @job.email).deliver_now
+    ApplicationMailer.send_mail(@job, @job.candidate_email).deliver_now
+
     render json: @job.as_json
-    ApplicationMailer.send_mail(@job).deliver_now
   end
 
   # PATCH/PUT /jobs/1 or /jobs/1.json
@@ -58,6 +61,6 @@ class Api::V1::JobsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def job_params
-    params.require(:job).permit(:name, :email, :file_url, :image, :candidate_name, :candidate_description)
+    params.require(:job).permit(:name, :email, :file_url, :image, :candidate_name, :candidate_description, :candidate_email)
   end
 end

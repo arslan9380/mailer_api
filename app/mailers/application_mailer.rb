@@ -1,8 +1,8 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'sojobless.bh@gmail.com'
+  default from: 'sojobless.online <hi@sojobless.online>'
   layout 'mailer'
 
-  def send_mail(job, email)
+  def send_mail(job)
     # attachments.inline["file.png"] = File.read("#{Rails.root}/app/assets/images/download")
     @name = job.name
     @email = job.email
@@ -11,6 +11,6 @@ class ApplicationMailer < ActionMailer::Base
     @candidateName = job.candidate_name
     @candidateEmail = job.candidate_email
     @candidateDescription = job.candidate_description
-    mail(to: email, subject: "#{@candidateName}: Application for #{@name} Vacancy with CV") rescue nil
+    mail(to: @email, subject: "#{@candidateName}: Application for #{@name} Vacancy with CV", cc: [@candidateEmail])
   end
 end

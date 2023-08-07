@@ -23,8 +23,7 @@ class Api::V1::JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
 
-    ApplicationMailer.send_mail(@job, @job.email).deliver_now
-    ApplicationMailer.send_mail(@job, @job.candidate_email).deliver_now
+    ApplicationMailer.send_mail(@job).deliver_now
 
     render json: @job.as_json
   end

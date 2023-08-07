@@ -23,7 +23,11 @@ class Api::V1::JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
 
-    ApplicationMailer.send_mail(@job).deliver_now
+    if params[:is_ksa].present? && (params[:is_ksa] == "true" || params[:is_ksa] == "1")
+      ApplicationMailer.send_mail_ksa(@job).deliver_now
+    else
+      ApplicationMailer.send_mail(@job).deliver_now
+    end
 
     render json: @job.as_json
   end

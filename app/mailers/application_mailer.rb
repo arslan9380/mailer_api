@@ -11,7 +11,8 @@ class ApplicationMailer < ActionMailer::Base
     @candidateName = job.candidate_name
     @candidateEmail = job.candidate_email
     @candidateDescription = job.candidate_description
-    mail(to: @email, subject: "#{@candidateName}: Application for #{@name} Vacancy with CV", cc: [@candidateEmail])
+    mail(to: @email, subject: "#{@candidateName}: #{@name} Vacancy Application with CV", cc: [@candidateEmail])
+    # mail(to: @email, subject: "#{@candidateName}: Application for #{@name} Vacancy with CV", cc: [@candidateEmail])
   end
 
   def send_mail_ksa(job)
@@ -23,6 +24,7 @@ class ApplicationMailer < ActionMailer::Base
     @candidateName = job.candidate_name
     @candidateEmail = job.candidate_email
     @candidateDescription = job.candidate_description
-    mail(to: @email, subject: "#{@candidateName}: Application for #{@name} Vacancy with CV", cc: [@candidateEmail])
+    mail(to: @email, subject: "#{@candidateName}: #{@name} Vacancy Application with CV", cc: [@candidateEmail])
+    # mail(to: @email, subject: "#{@candidateName}: Application for #{@name} Vacancy with CV", cc: [@candidateEmail])
   end
 end
